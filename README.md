@@ -14,6 +14,8 @@ It is designed for:
 • Digital Agencies & Media Houses that manage large volumes of media files and require automated, verifiable copyright embedding.
 • Developers & Sysadmins looking for a lightweight, scriptable Bash solution to monitor and protect directories automatically.
 
+> **Note on Compatibility:** MediaShield CLI functions perfectly for local archives, direct client deliveries (FTP/Cloud), and legal provenance. Please note that certain social media platforms automatically strip embedded metadata upon upload.
+
 --------------------------------------------------------------------------------
 
 ## Quick Start Guide (3 Steps)
