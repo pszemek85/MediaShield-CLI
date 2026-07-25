@@ -34,12 +34,11 @@ The included `install.sh` script automates the entire setup process. When execut
 
 ## Quick Start Guide (3 Steps)
 
-### 1. Extract & Navigate
+### 1. Extract Archive
 
-Extract the archive and move into the project directory:
+Extract the downloaded ZIP archive in your target directory:
 
   unzip MediaShield_Suite_v1.0.0.zip
-  cd mediashield_release
 
 ### 2. Run Automated Installation
 
