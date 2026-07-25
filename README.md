@@ -26,7 +26,9 @@ The included `install.sh` script automates the entire setup process. When execut
    - `ffmpeg` (for video watermarking, frame rendering, and video metadata injection)
    - `libimage-exiftool-perl` (`exiftool` for precise EXIF/XMP metadata embedding in images)
    - `inotify-tools` (for real-time directory event monitoring)
-2. **Sets Up Directory Structure:** Creates `/opt/mediashield/` with all necessary subdirectories (`input/`, `output/`, `archive/`, `logs/`, `bin/`).
+2. **Sets Up Directory Structure & SFTP Permissions:**
+   - Creates `/opt/mediashield/` with all necessary subdirectories (`input/`, `output/`, `archive/`, `logs/`, `bin/`).
+   - Automatically grants full read/write permissions (`777`) to processing directories to allow seamless non-root uploads via SFTP, FTP, and SMB clients.
 3. **Deploys Executables & Permissions:** Moves core processing and watching scripts to `/opt/mediashield/bin/` and sets execution rights (`+x`).
 4. **Configures & Starts Systemd Service:** Registers `mediashield.service` so the automated background watcher starts on boot and restarts automatically if needed.
 
@@ -43,7 +45,7 @@ Extract the downloaded ZIP archive into its dedicated directory and move into it
 
 ### 2. Run Automated Installation
 
-Make `install.sh` executable and run it with `sudo` permissions (required for package installation and systemd service registration):
+Make `install.sh` executable and run it with `sudo` permissions (required for package installation, permission setup, and systemd service registration):
 
   chmod +x install.sh
   sudo ./install.sh
@@ -55,7 +57,7 @@ Once installed, the background service (`mediashield.service`) is active immedia
 • Check Service Status:
   sudo systemctl status mediashield.service
 
-• Process Files: Simply copy or upload your images (`.jpg`, `.png`, etc.) or videos (`.mp4`, `.mov`, etc.) into:
+• Process Files (SFTP / FTP / Local): Simply copy or upload your images (`.jpg`, `.png`, etc.) or videos (`.mp4`, `.mov`, etc.) directly into:
   /opt/mediashield/input/
 
 • Retrieve Protected Files: Your protected, watermarked media with embedded SHA-256 signatures will automatically appear in:
