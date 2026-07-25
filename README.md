@@ -13,8 +13,18 @@ It is designed for:
 • Independent Content Creators & Photographers who want to secure their visual assets against unauthorized use or digital tampering.
 • Digital Agencies & Media Houses that manage large volumes of media files and require automated, verifiable copyright embedding.
 • Developers & Sysadmins looking for a lightweight, scriptable Bash solution to monitor and protect directories automatically.
+• Server-Friendly Performance: Hard-capped at 50% CPU core utilization using OS-level core affinity (`taskset`), ensuring high processing speeds while guaranteeing server stability for co-hosted services.
 
 > **Note on Compatibility:** MediaShield CLI functions perfectly for local archives, direct client deliveries (FTP/Cloud), and legal provenance. Please note that certain social media platforms automatically strip embedded metadata upon upload.
+
+--------------------------------------------------------------------------------
+
+## Server Performance & CPU Throttling
+
+MediaShield CLI is engineered specifically for shared production server environments:
+
+• **Hardware-Level 50% CPU Limit:** Media processing (video encoding and image metadata injection) is restricted to a maximum of 50% of available CPU cores via `taskset`.
+• **System Stability:** Web servers, databases, and other system services will never experience resource starvation or lag while media files are being processed in the background.
 
 --------------------------------------------------------------------------------
 
@@ -101,4 +111,25 @@ You can view the embedded metadata either individually or for all files at once 
 
 ## Licensing & Pricing
 
-MediaShield CLI is distributed as commercial software to protect your media assets against manipulation and unauthorized use through automated SHA-256 signatures and embedded copyright metadata. Choose the plan that fits your needs.
+MediaShield CLI is distributed as commercial software to protect your media assets against manipulation and unauthorized use through automated SHA-256 signatures and embedded copyright metadata. Choose the plan that fits your needs:
+
+| License Tier | Price | Features | Buy |
+| :--- | :--- | :--- | :--- |
+| **Standard License** | **€29** | Lifetime access, up to 3 server activations | [**Buy Standard**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
+| **Agency License** | **€79** | Lifetime access, unlimited activations, priority support | [**Buy Agency**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
+
+> **Note:** After purchase, you will immediately receive your `.zip` archive containing all tools alongside your unique license key.
+
+--------------------------------------------------------------------------------
+
+## Compatibility Note
+
+• Linux (Ubuntu / Debian / RHEL) : Fully supported natively via Bash/POSIX terminal and `systemd`.
+• macOS                         : Supported natively via POSIX terminal (manual background process execution).
+• Windows                       : Supported via WSL (Windows Subsystem for Linux).
+
+--------------------------------------------------------------------------------
+
+## Support
+
+For technical assistance, updates, or license questions, please contact support or visit our official GitHub repository.
