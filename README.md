@@ -28,19 +28,27 @@ MediaShield CLI is engineered specifically for shared production server environm
 
 --------------------------------------------------------------------------------
 
+## Secure Licensing & Online Verification
+
+MediaShield CLI requires a valid license key upon installation. During the setup process (`install.sh`), your license key is securely verified online against Lemon Squeezy to ensure compliance with your active tier (e.g., Standard up to 3 activations vs. Agency unlimited).
+
+--------------------------------------------------------------------------------
+
 ## What the Installer Does
 
 The included `install.sh` script automates the entire setup process. When executed, it automatically:
 
-1. **Installs Required System Dependencies:**
+1. **Validates License Key:** Prompts for your license key and verifies it online via Lemon Squeezy API.
+2. **Installs Required System Dependencies:**
    - `ffmpeg` (for video watermarking, frame rendering, and video metadata injection)
    - `libimage-exiftool-perl` (`exiftool` for precise EXIF/XMP metadata embedding in images)
    - `inotify-tools` (for real-time directory event monitoring)
-2. **Sets Up Directory Structure & SFTP Permissions:**
+   - `curl` (for online license verification)
+3. **Sets Up Directory Structure & SFTP Permissions:**
    - Creates `/opt/mediashield/` with all necessary subdirectories (`input/`, `output/`, `archive/`, `logs/`, `bin/`).
    - Automatically grants full read/write permissions (`777`) to processing directories to allow seamless non-root uploads via SFTP, FTP, and SMB clients.
-3. **Deploys Executables & Permissions:** Moves core processing and watching scripts to `/opt/mediashield/bin/` and sets execution rights (`+x`).
-4. **Configures & Starts Systemd Service:** Registers `mediashield.service` so the automated background watcher starts on boot and restarts automatically if needed.
+4. **Deploys Executables & Permissions:** Moves core processing and watching scripts to `/opt/mediashield/bin/` and sets execution rights (`+x`).
+5. **Configures & Starts Systemd Service:** Registers `mediashield.service` so the automated background watcher starts on boot and restarts automatically if needed.
 
 --------------------------------------------------------------------------------
 
@@ -55,10 +63,11 @@ Extract the downloaded ZIP archive into its dedicated directory and move into it
 
 ### 2. Run Automated Installation
 
-Make `install.sh` executable and run it with `sudo` permissions (required for package installation, permission setup, and systemd service registration):
+Make `install.sh` executable and run it with `sudo` permissions (required for online license checking, package installation, permission setup, and systemd service registration):
 
    chmod +x install.sh
    sudo ./install.sh
+   *(Note: Have your MediaShield license key ready when prompted during installation).*
 
 ### 3. Verify & Start Using
 
@@ -115,7 +124,7 @@ MediaShield CLI is distributed as commercial software to protect your media asse
 
 | License Tier | Price | Features | Buy |
 | :--- | :--- | :--- | :--- |
-| **Standard License** | **€29** | Lifetime access, up to 3 server activations | [**Buy Standard**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
+| **Standard License** | **€29** | Lifetime access, up to 3 server activations, online license validation | [**Buy Standard**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
 | **Agency License** | **€79** | Lifetime access, unlimited activations, priority support | [**Buy Agency**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
 
 > **Note:** After purchase, you will immediately receive your `.zip` archive containing all tools alongside your unique license key.
