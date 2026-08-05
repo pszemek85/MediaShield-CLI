@@ -30,7 +30,7 @@ MediaShield CLI is engineered specifically for shared production server environm
 
 ## Secure Licensing & Online Verification
 
-MediaShield CLI requires a valid license key upon installation. During the setup process (`install.sh`), your license key is securely verified online against Lemon Squeezy to ensure compliance with your active tier (e.g., Standard up to 3 activations vs. Agency unlimited).
+MediaShield CLI requires a valid license key upon installation. During the setup process (`install.sh`), your license key is securely verified online against Gumroad to ensure compliance with your active tier.
 
 --------------------------------------------------------------------------------
 
@@ -38,7 +38,7 @@ MediaShield CLI requires a valid license key upon installation. During the setup
 
 The included `install.sh` script automates the entire setup process. When executed, it automatically:
 
-1. **Validates License Key:** Prompts for your license key and verifies it online via Lemon Squeezy API.
+1. **Validates License Key:** Prompts for your license key and verifies it online via Gumroad API.
 2. **Installs Required System Dependencies:**
    - `ffmpeg` (for video watermarking, frame rendering, and video metadata injection)
    - `libimage-exiftool-perl` (`exiftool` for precise EXIF/XMP metadata embedding in images)
@@ -95,26 +95,18 @@ You can view the embedded metadata either individually or for all files at once 
 #### 1. Images (`.jpg`)
 
 • **Inspect a single image individually:**
-  ```bash
   exiftool /opt/mediashield/output/protected_MVIMG_FILENAME.jpg
-  ```
 
 • **Inspect all images in the output directory:**
-  ```bash
   exiftool /opt/mediashield/output/*.jpg
-  ```
 
 #### 2. Videos (`.mp4`)
 
 • **Inspect a single video individually:**
-  ```bash
   ffprobe -hide_banner /opt/mediashield/output/protected_VID_FILENAME.mp4
-  ```
 
 • **Inspect all videos in the output directory:**
-  ```bash
   for v in /opt/mediashield/output/*.mp4; do echo "=== $v ==="; ffprobe -hide_banner "$v"; done
-  ```
 
 --------------------------------------------------------------------------------
 
@@ -124,8 +116,7 @@ MediaShield CLI is distributed as commercial software to protect your media asse
 
 | License Tier | Price | Features | Buy |
 | :--- | :--- | :--- | :--- |
-| **Standard License** | **€29** | Lifetime access, up to 3 server activations, online license validation | [**Buy Standard**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
-| **Agency License** | **€79** | Lifetime access, unlimited activations, priority support | [**Buy Agency**](https://mediashield.lemonsqueezy.com/checkout/buy/0e4fc8c6-f6c9-488b-b36c-238540af489f) |
+| **Agency License** | **€79** | Lifetime access, unlimited activations, priority support, online license validation via Gumroad | [**Buy on Gumroad**](https://pszemek.gumroad.com/l/lzxcmv) |
 
 > **Note:** After purchase, you will immediately receive your `.zip` archive containing all tools alongside your unique license key.
 
